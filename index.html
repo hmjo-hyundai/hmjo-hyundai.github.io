@@ -26,7 +26,99 @@
             font-weight: bold
         }
     </style>
+    <style>body,
+    html {
+      width: 100%;
+      margin: 0;
+      padding: 0;
+      overflow: hidden;
+    }
+    a {
+      color: #fff;
+      vertical-align: middle;
+    }
 
+    a:link {
+      color: #fff;
+      text-decoration: none;
+      vertical-align: middle;
+    }
+    a:visited {
+      color: #fff;
+    }
+
+    .container {
+      width: 100%;
+      height: 100vh;
+    }
+    .header {
+      width: 100%;
+      padding: 10px 0;
+      text-align: center;
+    }
+    .wrapper {
+      width: 100%;
+      padding: 50px;
+    }
+    .title {
+      font-size: 32px;
+    }
+    .info {
+      font-size: 18px;
+    }
+    .contents {
+      width: 70%;
+      height: 100px;
+      margin: 50px 0px;
+      margin-left: auto; margin-right: auto;
+      padding: 10px 30px;
+      border-radius: 5px;
+      border: 1px solid lightgrey;
+    }
+    .icon {
+      float: left;
+      width: 100px;
+      height: 100px;
+      background-image: url(data:image/svg+xml;base64,PHN2ZyB4bWxucz0iaHR0cDovL3d3dy53My5vcmcvMjAwMC9zdmciIHhtbG5zOnhsaW5rPSJodHRwOi8vd3d3LnczLm9yZy8xOTk5L3hsaW5rIiB3aWR0aD0iNTEyIiBoZWlnaHQ9IjUxMiIgdmlld0JveD0iMCAwIDUxMiA1MTIiPgogICAgPGRlZnM+CiAgICAgICAgPHBhdGggaWQ9ImlzOWdmbWR1amEiIGQ9Ik0wIDBINTEyVjUxMkgweiIvPgogICAgICAgIDxwYXRoIGlkPSJyZ2xuYWhsNDBjIiBkPSJNMCAwLjQ5OEwyNDcuNDU0IDAuNDk4IDI0Ny40NTQgMjQxLjUxNyAwIDI0MS41MTd6Ii8+CiAgICA8L2RlZnM+CiAgICA8ZyBmaWxsPSJub25lIiBmaWxsLXJ1bGU9ImV2ZW5vZGQiPgogICAgICAgIDxnPgogICAgICAgICAgICA8Zz4KICAgICAgICAgICAgICAgIDxnPgogICAgICAgICAgICAgICAgICAgIDxnIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMDAgLTYwNykgdHJhbnNsYXRlKDEwMCA2MDcpIj4KICAgICAgICAgICAgICAgICAgICAgICAgPG1hc2sgaWQ9ImNsMzRkN29oaGIiIGZpbGw9IiNmZmYiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPHVzZSB4bGluazpocmVmPSIjaXM5Z2ZtZHVqYSIvPgogICAgICAgICAgICAgICAgICAgICAgICA8L21hc2s+CiAgICAgICAgICAgICAgICAgICAgICAgIDx1c2UgZmlsbD0iI0ZGRiIgeGxpbms6aHJlZj0iI2lzOWdmbWR1amEiLz4KICAgICAgICAgICAgICAgICAgICAgICAgPHBhdGggZmlsbD0iIzI0NjJGNyIgZD0iTTAgMzQwSDUxMlY1MTJIMHoiIG1hc2s9InVybCgjY2wzNGQ3b2hoYikiLz4KICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICAgICAgPHRleHQgZmlsbD0iI0ZGRiIgZm9udC1mYW1pbHk9Ikh5dW5kYWlTYW5zSGVhZEtST1RGQm9sZCwgSHl1bmRhaSBTYW5zIEhlYWQgS1IgT1RGIiBmb250LXNpemU9Ijc4IiBmb250LXdlaWdodD0iYm9sZCIgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEwMCAtNjA3KSB0cmFuc2xhdGUoMTAwIDYwNykiPgogICAgICAgICAgICAgICAgICAgICAgICA8dHNwYW4geD0iMTE1LjA0NyIgeT0iNDM2Ij5EUklWRVI8L3RzcGFuPgogICAgICAgICAgICAgICAgICAgIDwvdGV4dD4KICAgICAgICAgICAgICAgICAgICA8Zz4KICAgICAgICAgICAgICAgICAgICAgICAgPGcgdHJhbnNmb3JtPSJ0cmFuc2xhdGUoLTEwMCAtNjA3KSB0cmFuc2xhdGUoMTAwIDYwNykgdHJhbnNsYXRlKDEzMyA2MikgdHJhbnNsYXRlKDAgLjAxNSkiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgPG1hc2sgaWQ9IjVweXl0YWdzY2QiIGZpbGw9IiNmZmYiPgogICAgICAgICAgICAgICAgICAgICAgICAgICAgICAgIDx1c2UgeGxpbms6aHJlZj0iI3JnbG5haGw0MGMiLz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDwvbWFzaz4KICAgICAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGZpbGw9IiMyMzYyRjYiIGQ9Ik0yNDcuMzE1IDE5My43MThjLS45NS0xMi4xNS02LjgxNy0yMy41ODQtMTYuMTA0LTMxLjM3OGwtNTQuODY3LTQ1Ljc4M2MtNC42Ny0zLjkxNS03LjU4Mi05LjQzNS04LjIxNC0xNS40MThIMTUxLjZjLjY3IDEwLjg3IDUuNzM4IDIwLjk4MSAxNC4xNDMgMjguMDM3bDU0Ljg3MyA0NS43ODJjNS45MjQgNC45NjggOS42NjUgMTIuMjczIDEwLjI3IDIwLjA0Ni41OTUgNy41NzctMS43NjQgMTQuODIzLTYuNjMgMjAuNDA3LTUuMzM1IDYuMTIxLTEzLjA2IDkuNjMzLTIxLjIgOS42MzMtNi41ODIgMC0xMi45OS0yLjMzOC0xOC4wNDgtNi41NzhsLTQxLjc5Mi0zNC44MTZjLTUuNTUyLTQuNjU0LTEyLjU4Ni03LjIxNS0xOS44MDEtNy4yMTUtNy4yMzEgMC0xNC4yNjYgMi41NjEtMTkuODIzIDcuMjJMNjIuNDcgMjE4LjQ2N2MtNS4wNTMgNC4yNC0xMS40NjYgNi41NzgtMTguMDQ4IDYuNTc4LTguNTQ0IDAtMTYuNTI0LTMuODEtMjEuODk1LTEwLjQ1Ni05LjU1My0xMS44MjctNy42NC0yOS41NzggNC4yNi0zOS41NzFsNTQuMjg0LTQ1Ljg0MWM5LjA0My03LjU5MiAxNC4yMzMtMTguNzEzIDE0LjIzMy0zMC41MjNWNDUuMDc2YzAtNy41OTIgMi45ODEtMTQuNzEyIDguNC0yMC4wNCA1LjI4Ny01LjIwMiAxMi4yOS04LjA2NiAxOS43MTItOC4wNjZsLjQ3OC4wMDZjMTIuMTQuMjAxIDIyLjQ1MyA4LjQzNyAyNi4xNSAxOS42NTJoMTcuMDM0QzE2Mi45NSAxNi4zNyAxNDUuMjg0Ljg1NiAxMjQuMTcuNWwtLjc4MS0uMDA1Yy0xMS43NTggMC0yMi44NTEgNC41NDgtMzEuMjQgMTIuNzk5LTguNTkyIDguNDQ3LTEzLjMyNiAxOS43MzItMTMuMzI2IDMxLjc4MnY1My41NzdjMCA2LjkyOC0zLjAzOSAxMy40NTItOC4zNTIgMTcuOTA0bC01NC4yNzcgNDUuODQ2Yy0xOC43MzQgMTUuNzE2LTIxLjY0IDQzLjc3NC02LjQ4MiA2Mi41NCA4LjUxNiAxMC41MyAyMS4xNjcgMTYuNTc3IDM0LjcxIDE2LjU3NyAxMC40NDUgMCAyMC42Mi0zLjcwOSAyOC42NDctMTAuNDRsNDEuMTIzLTM0LjgxMWMyLjU4OC0yLjE2OCA1Ljg2LTMuMzU4IDkuMjE4LTMuMzU4IDMuMzU4IDAgNi42MyAxLjE5IDkuMjEzIDMuMzU4bDQxLjc5OCAzNC44MjFjOC4wMTcgNi43MjEgMTguMTg2IDEwLjQzIDI4LjYzNyAxMC40MyAxMi45MDUgMCAyNS4xNTctNS41NzQgMzMuNjItMTUuMjggNy44LTguOTQ4IDExLjU3Ny0yMC40OTggMTAuNjM3LTMyLjUyMiIgbWFzaz0idXJsKCM1cHl5dGFnc2NkKSIvPgogICAgICAgICAgICAgICAgICAgICAgICA8L2c+CiAgICAgICAgICAgICAgICAgICAgICAgIDxwYXRoIGZpbGw9IiMwMEQ2M0YiIGQ9Ik0xNjUuODQgNzguMzM4Yy0uNTA1LjMxNC0xLjAyLjYtMS41NjcuODI5LS40MDQuMTctLjgxOS4zMDgtMS4yNDQuNDMtLjYzMi4xODYtMS4yODUuMzE5LTEuOTU1LjM5My0uMzc3LjAzMi0uNzYuMDU0LTEuMTQyLjA1NC0uMzg4IDAtLjc2NS0uMDIyLTEuMTQyLS4wNTQtLjY0OS0uMDY5LTEuMjgtLjIwMS0xLjkwMi0uMzc3LS42MTEtLjE3LTEuMjAxLS4zOTgtMS43Ny0uNjctLjUzNi0uMjYtMS4wNTctLjU1Ny0xLjU0Ni0uODk3LTIuODk1LTIuMDE0LTQuNzkyLTUuMzU2LTQuNzkyLTkuMTUgMC00LjA4IDIuMjA1LTcuNjQgNS40NzItOS41ODQuMjg3LS4xNjUuNTc0LS4zMTkuODY2LS40NjIgMS4xMzctLjU0MiAyLjM3LS45MDkgMy42NzItMS4wNDcuMzc3LS4wMzcuNzU0LS4wNTMgMS4xNDItLjA1My43NyAwIDEuNTIuMDc1IDIuMjQ3LjIyMy43MjMuMTQ5IDEuNDI0LjM2NyAyLjA5NC42NTQuNDA5LjE3LjgwNy4zODIgMS4yLjYgMy4zNDggMS45MjkgNS42MDYgNS41MzEgNS42MDYgOS42NyAwIDMuOTg1LTIuMDk0IDcuNDctNS4yMzkgOS40NDFtLTUuOTA4LTM0LjUzYy0xMy44NTYgMC0yNS4wODggMTEuMjMyLTI1LjA4OCAyNS4wODkgMCAxMy44NTYgMTEuMjMyIDI1LjA4OCAyNS4wODggMjUuMDg4IDEzLjg1NiAwIDI1LjA4OC0xMS4yMzIgMjUuMDg4LTI1LjA4OCAwLTEzLjg1Ny0xMS4yMzItMjUuMDg4LTI1LjA4OC0yNS4wODgiIHRyYW5zZm9ybT0idHJhbnNsYXRlKC0xMDAgLTYwNykgdHJhbnNsYXRlKDEwMCA2MDcpIHRyYW5zbGF0ZSgxMzMgNjIpIi8+CiAgICAgICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICAgICAgPC9nPgogICAgICAgICAgICA8L2c+CiAgICAgICAgPC9nPgogICAgPC9nPgo8L3N2Zz4K);
+      background-repeat: no-repeat;
+      background-size: 100% 100%;
+      border-radius: 10px;
+    }
+    .name {
+      float: left;
+      /* margin: 0 50px; */
+    }
+    .version {
+      color: grey;
+    }
+    .link_wrap {
+      display: block;
+      float: right;
+    }
+    .link {
+      width: 120px;
+      height: 40px;
+      position: relative;
+      top: 30px;
+      border-radius: 40px;
+      border-width: 0;
+      background-color: #2462f7;
+      text-align: center;
+      font-size: 16px;
+      cursor: pointer;
+      display: table-cell;
+    }
+    .link:hover {
+      background-color: #1677ff;
+    }
+    .footer {
+      width: 100%;
+      position: absolute;
+      bottom: 10px;
+      text-align: center;
+      color: grey;
+    }
+    </style>
 
     <body style="margin:0;padding:10px;">
         <div style="text-align: center;">
@@ -41,8 +133,22 @@
             <br/>
             <br/>
             -->
-            <p><a style="font-size: 1.5em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest-stage-12.plist">Stage 다운로드</a> stage.v12</p>
-            <p><a style="font-size: 1.5em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest-qa-12.plist">QA 다운로드</a> qa.v12</p>
+            <!-- <p><a style="font-size: 1.5em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest-stage-12.plist">Stage 다운로드</a> stage.v12</p> -->
+            <!-- <p><a style="font-size: 1.5em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest-qa-12.plist">QA 다운로드</a> qa.v12</p> -->
+            <div class="contents">
+               <!-- <div class="icon"></div> -->
+               <div class="name">
+                 <div><h3>Shucle Rider iOS App - STAGE</h3></div>
+                 <div class="version"><h3 class="version_text">1.0.0.12</h3></div> </div>
+                 <div class="link_wrap"><a class="link" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest-stage-12.plist" download="">설치</a></div>
+            </div>
+            <div class="contents">
+               <!-- <div class="icon"></div> -->
+               <div class="name">
+                 <div><h3>Shucle Rider iOS App - QA</h3></div>
+                 <div class="version"><h3 class="version_text">1.0.0.12</h3></div> </div>
+                 <div class="link_wrap"><a class="link" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest-qa-12.plist" download="">설치</a></div>
+            </div>
             <details>
                 <summary style="font-size: 1.3em;">이전 QA 빌드</summary>
                 <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest-stage-11.plist">Stage 다운로드</a> stage.v11</p>
