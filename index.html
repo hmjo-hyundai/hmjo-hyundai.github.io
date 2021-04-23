@@ -1,296 +1,243 @@
-<!doctype html>
-<html class="no-js" lang="">
+<!DOCTYPE html>
 
-    <head>
-        <meta charset="utf-8">
-        <title>셔클 설치</title>
-        <link rel="apple-touch-icon" sizes="180x180" href="/apple-touch-icon.png">
-        <link rel="icon" type="image/png" sizes="32x32" href="/favicon-32x32.png">
-        <link rel="icon" type="image/png" sizes="16x16" href="/favicon-16x16.png">
-        <link rel="manifest" href="/site.webmanifest">
-        <link rel="mask-icon" href="/safari-pinned-tab.svg" color="#5bbad5">
-        <link rel="stylesheet" href="appinstall.css">
-        <meta name="msapplication-TileColor" content="#da532c">
-        <meta name="theme-color" content="#ffffff">
-        <meta name="viewport" content="width=device-width, initial-scale=1, user-scalable=no">
-        <meta name="theme-color" content="#fafafa">
-        <meta name="og:description" content="업데이트">
-    </head>
+<html lang="ko">
+  <head>
+    <meta charset="utf-8" />
+    <title>셔클 iOS 설치 페이지</title>
+    <meta name="description" content="AIRLAB" />
+    <meta name="author" content="AIRLAB" />
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no" />
     <style>
-        ul li {
-            margin-bottom:10px;
-            line-height:1.2em;
-        }
+      body,
+      html {
+        width: 100%;
+        height: 100vh;
+        margin: 0;
+        padding: 0;
+        /* overflow: auto; */
+      }
 
-        div#recent text {
-            font-weight: bold
-        }
+      ul li {
+        margin-bottom: 10px;
+        line-height: 1.2em;
+      }
+
+      .container {
+        width: 100%;
+        height: 100%;
+      }
+      .header {
+        width: 100%;
+        height: 60px;
+        padding: 10px 0;
+        text-align: center;
+      }
+      .wrapper {
+        width: calc(100% - 40px);
+        height: calc(100% - 160px);
+        padding: 20px;
+        display: flex;
+        flex-direction: column;
+        overflow-y: scroll;
+      }
+      .qr {
+        width: 150px;
+        height: 150px;
+        margin: 0 auto;
+        background-image: url(data:image/png;base64,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);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+      }
+      .info {
+        width: 100%;
+        height: 45px;
+        margin: 20px 0;
+        font-size: 18px;
+      }
+      .contents {
+        width: calc(100% - 20px);
+        height: 100px;
+        padding: 10px;
+        border-radius: 5px;
+        border: 1px solid lightgrey;
+        display: flex;
+        justify-content: space-between;
+      }
+      .icon {
+        width: 80px;
+        height: 80px;
+        margin: 10px 0;
+        background-image: url(data:image/png;base64,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);
+        background-repeat: no-repeat;
+        background-size: 100% 100%;
+        border-radius: 10px;
+      }
+      .version {
+        color: grey;
+      }
+      .link_wrap {
+        display: block;
+        float: right;
+      }
+      .link {
+        width: 100px;
+        height: 40px;
+        position: relative;
+        top: 30px;
+        border-radius: 30px;
+        border-width: 0;
+        background-color: #2462f7;
+        text-align: center;
+        font-size: 16px;
+        cursor: pointer;
+        display: table-cell;
+      }
+      .link:hover {
+        background-color: #1677ff;
+      }
+      a.link {
+        color: #fff;
+        vertical-align: middle;
+      }
+
+      a:link.link {
+        color: #fff;
+        text-decoration: none;
+        vertical-align: middle;
+      }
+      a:visited.link {
+        color: #fff;
+      }
+      .download {
+        margin: 10px 0;
+      }
+      .history {
+        margin: 10px 0;
+      }
+      .footer {
+        width: 100%;
+        height: 20px;
+        position: absolute;
+        bottom: 10px;
+        text-align: center;
+        color: grey;
+      }
     </style>
-    <body style="margin:0;padding:10px;">
-        <div style="text-align: center;">
-            <h1>셔클 iOS 설치 페이지</h1>
-            <img style="display: block; margin-left: auto; margin-right: auto;" src="images/qr/shucleqrpage.png" alt="" width="200" height="200" />
-            <!--
-            <a style="font-size: 1.5em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest.plist">개발버전 다운로드</a>
-            -->
-            <br/>
-            <!--
-            <a style="font-size: 1.5em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest-qa.plist">QA버전 다운로드</a>
-            <br/>
-            <br/>
-            -->
-            <p><a style="font-size: 1.5em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.2.0/manifest-qa-04.plist">QA 다운로드</a> QA 2.2.0.5</p>
-
-            <br/>
-
-            <br/>
-            <details>
-                <summary style="font-size: 1.3em;">이전 STAGE 빌드</summary>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.2.0/manifest-stage-01.plist">Stage 다운로드</a> stage 2.2.0.1</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.1.2/manifest-stage-01.plist">Stage 다운로드(세종테스트)</a> stage 2.1.2.1</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.1.1/manifest-stage-01.plist">Stage 다운로드</a> stage 2.1.1.1</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.1.0/manifest-stage-06.plist">Stage 다운로드</a> stage 2.1.0.6</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.1.0/manifest-stage-05.plist">Stage 다운로드</a> stage 2.1.0.5</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.1.0/manifest-stage-04.plist">Stage 다운로드</a> stage 2.1.0.4</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.1.0/manifest-stage-03.plist">Stage 다운로드</a> stage 2.1.0.3</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.1.0/manifest-stage-02.plist">Stage 다운로드</a> stage 2.1.0.2</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.1.0/manifest-stage-01.plist">Stage 다운로드</a> stage 2.1.0.1</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.0.1/manifest-stage-00.plist">Stage 다운로드(Hotfix)</a> stage 2.0.1.v00</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.0.0/manifest-stage-00.plist">Stage 다운로드</a> stage 2.0.0.v00</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-25.plist">Stage 다운로드</a> stage.v25</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-24.plist">Stage 다운로드</a> stage.v24</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-23.plist">Stage 다운로드</a> stage.v23</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-22.plist">Stage 다운로드</a> stage.v22</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-qa-22.plist">QA 다운로드</a> qa.v22</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-21.plist">Stage 다운로드</a> stage.v21</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-20.plist">Stage 다운로드</a> stage.v20</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-19.plist">Stage 다운로드</a> stage.v19</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-18.plist">Stage 다운로드</a> stage.v18</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-17.plist">Stage 다운로드</a> stage.v17</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-release-17.plist">Release 다운로드(shucle-test)</a> release.v17</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-16.plist">Stage 다운로드</a> stage.v16</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-release-14.plist">Release 다운로드</a> release.v14</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-15.plist">Stage 다운로드</a> stage.v15</p>
-                <p><a style="font-size: 1.5em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-14.plist">Stage 다운로드</a> stage.v14</p>
-                <p><a style="font-size: 1.5em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-qa-14.plist">QA 다운로드</a> qa.v14</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-13.plist">Stage 다운로드</a> stage.v13</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-qa-13.plist">QA 다운로드</a> qa.v13</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-12.plist">Stage 다운로드</a> stage.v12</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-qa-12.plist">QA 다운로드</a> qa.v12</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-11.plist">Stage 다운로드</a> stage.v11</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-qa-11.plist">QA 다운로드</a> qa.v11</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-10.plist">Stage 다운로드</a> stage.v10</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-qa-10.plist">QA 다운로드</a> qa.v10</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-qa-09.plist">QA 다운로드</a> qa.v9</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-09.plist">Stage 다운로드</a> stage.v9</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-qa-08.plist">QA 다운로드</a> qa.v8</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-qa-07.plist">QA 다운로드</a> qa.v7</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-qa-04.plist">QA 다운로드</a> qa.v4</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-qa-03.plist">QA 다운로드</a> qa.v3</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-qa-02.plist">QA 다운로드</a> qa.v2</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-qa-01.plist">QA 다운로드</a> qa.v1</p>
-            </details>
-            <details>
-                <summary style="font-size: 1.3em;">이전 QA 빌드</summary>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.2.0/manifest-qa-04.plist">QA 다운로드</a> QA 2.2.0.4</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.2.0/manifest-qa-03.plist">QA 다운로드</a> QA 2.2.0.3</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.2.0/manifest-qa-02.plist">QA 다운로드</a> QA 2.2.0.2</p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.1.2/manifest-qa-02.plist">QA 다운로드</a> QA 2.1.2.2</p>
-            </details>
-            <details>
-                <summary style="font-size: 1.3em;">DEV 빌드</summary>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.2.0/manifest-dev-04.plist">DEV 다운로드(2.2.0.4)</a></p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.2.0/manifest-dev-03.plist">DEV 다운로드(2.2.0.3)</a></p>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.1.0/manifest-dev-03.plist">Dev 테스트(2.1.0.3)</a></p>
-            </details>
-            <details>
-                <summary style="font-size: 1.3em;">테스트 빌드</summary>
-                <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-s-deep.plist">딥링크 테스트</a></p>
-            </details>
-
-            <br/>
-            <h2>변경사항</h2>
-            <div class="recent">
-                <h3 class="update">-------- 2021년 4월 22일(2.2.0.4) ---------</h3>
-                  <p>부정평가 시에만 리뷰 피드백 받을수 있도록 수정</p>
-                  <p>서비스 탈퇴시 관리중인 멤버십 조회 조건 수정</p>
-                  <p>로그아웃, 서비스탈퇴 디자인수정</p>
-                  <p>고객문의 채널톡 더블 클릭시 무한로딩 수정</p>
-                  <p>가호출, 실호출 간 대기시간 갭이 클떄 팝업 추가</p>
-                  <p>appHistoryReset기능 추가 (개발모드)</p>
-                <h3 class="update">-------- 2021년 4월 20일(2.2.0.3) ---------</h3>
-                  <p>탑승 리뷰 기능 추가</p>
-                  <p>멤버십 관련 노티 랜딩 처</p>
-                <h3 class="update">-------- 2021년 4월 16일(2.2.0.1) ---------</h3>
-                  <p>2.2.0 QA 스타트</p>
-            </div>
-            <br/>
-            <p>--------------------------------</p>
-            <details>
-                <summary>이전 패치 내용</summary>
-                <h3 class="update">-------- 2021년 4월 8일(세종테스트 2.1.2.1) ---------</h3>
-                  <p>개발자 모드 숨김</p>
-                <h3 class="update">-------- 2021년 4월 5일(hotfix 2.1.1.1) ---------</h3>
-                  <p>innerZone 오류 수정</p>
-                  <p>24시간표시 다국어 수정</p>
-                  <p>서비스지역 표시 순서 변경</p>
-                <h3 class="update">-------- 2021년 3월 27일(v06) ---------</h3>
-                  <p>친구에게 공유하기 기능 추가</p>
-                <h3 class="update">-------- 2021년 3월 26일(v05) ---------</h3>
-                    <p>멤버시 안내 배너 문구 수정</p>
-                <h3 class="update">-------- 2021년 3월 24일(v04) ---------</h3>
-                    <p>2.1.0 BTS 수정</p>
-                    <p>phase 별 앱 아이콘 변경</p>
-                <h3 class="update">-------- 2021년 3월 22일(v03) ---------</h3>
-                    <p>탑승중 재기동시 ETA 수정</p>
-                <h3 class="update">-------- 2021년 3월 19일(v02) ---------</h3>
-                    <p>다국어 적용</p>
-                <h3 class="update">-------- 2021년 3월 18일(v01) ---------</h3>
-                    <p>최신약관 동의 화면 수정</p>
-                    <p>app scheme 추가</p>
-                    <p>텍스트배너 추가</p>
-                    <p>멤버십 총 개수 제한 추가</p>
-                <h3 class="update">-------- 2021년 3월 2일(v25) ---------</h3>
-                    <p>2개 이상의 공지사항이 있을때 차례대로 나오도록 수정</p>
-                <h3 class="update">-------- 2021년 2월 24일(v22) ---------</h3>
-                    <p>닉네임 변경후 멤버심 구매시 이번 닉네임으로 나오는 버그 수정</p>
-                    <p>사용기한 만료일 표시 문제 수정</p>
-                    <p>약관 동의 화면 "모두 동의 합니다" 동작 영역 수정</p>
-                <h3 class="update">-------- 2021년 3월 9일(2.0.1 v0) ---------</h3>
-                    <p>무료플랜 상태에서 플랜 구매 가이드 팝업 노출</p>
-                    <p>모의 위치 노출 삭제(Release만 반영)</p>
-                <h3 class="update">-------- 2021년 2월 22일(v21_2) ---------</h3>
-                    <p>카드등록 약관 화면 버튼 활성화 문제 수정</p>
-                    <p>업데이트 공지 업데이트 버튼 텍스트 수정</p>
-                    <p>웹뷰 공이 영역 수정</p>
-                <h3 class="update">-------- 2021년 2월 9일(v15) ---------</h3>
-                    <p>드랍 시 종료 하도록 수정</p>
-                    <p>출/도착지 화면에서 아이콘이 하나만 나오도록 수정</p>
-                <h3 class="update">-------- 2021년 2월 8일(v14) ---------</h3>
-                    <p>검색 메모리릭 수정</p>
-                    <p>textfiled 클러버튼 동작 수정</p>
-                    <p>이메일 가입 중복 터치 방지</p>
-                <h3 class="update">-------- 2021년 2월 5일(v13) ---------</h3>
-                    <p>약관 동의 화면 UX 변경</p>
-                    <p>설정>약관 페이지 네이티브에서 웹뷰로 변경</p>
-                    <p>앱 아이콘 이미지 변경, 앱 이름 변경</p>
-                    <p>디자인 필터링 적용(나머지 작업완료)</p>
-                <h3 class="update">-------- 2021년 2월 4일(v12) ---------</h3>
-                    <p>탑승전 알림 메시지노출 및 오류 수정</p>
-                    <p>만14세미만 인증 이후 진행되지 않는 문제 수정</p>
-                    <p>디자인 필터링 적용(추가작업 예정)</p>
-                <h3 class="update">-------- 2021년 2월 3일(v11) ---------</h3>
-                    <p>UserAgent versionCode 형식수정</p>
-                    <p>api error타입의 공지 webView에서 htmlText기반 textView로 변경</p>
-                    <p>맵과 라이딩관련 디자인수정</p>
-                <h3 class="update">-------- 2021년 2월 1일(v10) ---------</h3>
-                    <p>Stage pahse 빌드 설정추가</p>
-                    <p>멤버십 편집화면 크래쉬 수정</p>
-                    <p>메모리이슈 수정</p>
-                    <p>애플로그인 비공개 메일 에러케이스 삭제</p>
-                    <p>멤버십 변경될때 네이게이션바 문제 수정</p>
-                    <p>TestFlight 빌드 설정 추가</p>
-                    <p>출도착지 확정 화면에서 차량 배차 확인하도록 수정</p>
-                    <p>백그라운드->포그라운드시 Compass활성화,demand 요청 문제 수정</p>
-                    <p>애니매이션때문에 지도가 움직이지 않는 현상 수정</p>
-                    <p>영문 다국어에 "!!" 삭제</p>
-                    <p>주소 중복일때도 업데이트 하도록수정</p>
-                    <p>기본 위치 양재동으로 수정</p>
-                    <p>검색결과없음 이미지 수정</p>
-                    <p>검색어 입력창 x버튼추가, 검색장소 터치시 이동하도록 수정</p>
-                    <p>마커가 지도 따라 움직이도록 수정</p>
-                    <p>일시중지된 플랜카드 화면 버그 수정</p>
-                    <p>다국어 ~ rev4 적용</p>
-                <h3 class="update">-------- 2021년 1월 25일(qav9) ---------</h3>
-                    <p>타겟 텍스트 버그 수정</p>
-                    <p>초기위치 권한체크 후 카메라 위치 수정, 호출유저 위치 수정</p>
-                    <p>플랜 멤버화면 관련 버그 수정</p>
-                    <p>다국어 rev2 적용</p>
-                    <p>네트워크 단절시 팝업 추가</p>
-                <h3 class="update">-------- 2021년 1월 21일(qav8) ---------</h3>
-                    <p>다국어3차 적용</p>
-                    <p>위치 정보 변경</p>
-                    <p>기타 QA 이8</p>
-                <h3 class="update">-------- 2021년 1월 13일(qav7) ---------</h3>
-                      <p>다국어2차 적용</p>
-                      <p>FakeDemand 정보 전달</p>
-                      <p>지도 리소스 변경</p>
-                      <p>요금제 변경 관련 페이지 설명 추가</p>
-                <h3 class="update">-------- 2021년 1월 13일(qav6) ---------</h3>
-                    <p>라이딩 버그 수정</p>
-                    <p>셔클존 확인, 운영하기 확인 링크 수정</p>
-                <h3 class="update">-------- 2021년 1월 11일(qav4) ---------</h3>
-                    <p>플랜 가격 및 할인률 표시 업데이트</p>
-                    <p>다국어 1차 작업 포함</p>
-                    <p>프로필 수정 페이지 이슈 수정</p>
-                    <p>공통 에러처리</p>
-                    <p>출발지가 변경되는 문제 수정</p>
-                <h3 class="update">-------- 2021년 1월 4일(qav3) ---------</h3>
-                    <p>인증 리프레쉬 방식 수정</p>
-                    <p>proto 업데이트 </p>
-                    <p>AppStore 링크 오픈 수정</p>
-                    <p>결재 내역 표시</p>
-                    <p>버전 표시방식 변경</p>
-                    <p>드라이버 이름 이용 기록에 추가</p>
-                    <p>이용시간 누락 표시</p>
-                    <p>카드약관 페이지 추가</p>
-                    <p>플랜 가족추가/제거 오나료시 랜딩 페이지 수정</p>
-                    <p>디자인 수정</p>
-                    <p>프로필 카메라관련 권한 수정사항</p>
-                <h3 class="update">-------- 2020년 12월 21일(qav2) ---------</h3>
-                    <p>플랜 업그레이드 배너 수정</p>
-                    <p>문구 수정</p>
-                <h3 class="update">-------- 2020년 12월 18일 ---------</h3>
-                    <p>결제완료화면 스와이프백 기능 삭제</p>
-                    <p>카드안내 팝업 삭제</p>
-                    <p>네트워크 불가상태일때 앱실행시 로그아웃되는 현상 수정, 팝업 안내</p>
-                    <p>지도화면 나침반 버튼 작동 정상화</p>
-                    <p>카드정보 삭제 플랜등록시 카드등록 팝업 안</p>
-                <h3 class="update">-------- 2020년 12월 15일 ---------</h3>
-                    <p>디자인 필터링 다수 수정</p>
-                    <p>pre ride 경유지 마커 표시</p>
-                    <p>pre ride 지나온 경로 표시 버그 수정</p>
-                <h3 class="update">-------- 2020년 12월 11일 ---------</h3>
-                    <p>MyPlanVC 메모리릭 수정</p>
-                    <p>버전정보 노출 추가</p>
-                    <p>개발환경 정리, QA-phase 카카오 로그인  추가</p>
-                    <p>QA-phase 파이어베이스 푸시 인증서 갱신</p>
-                <h3 class="update">-------- 2020년 12월 7일 ---------</h3>
-                    <p>내플랜 -> 더알아보기(유료 플랜알아보기) 화면 추가 </p>
-                <h3 class="update">-------- 2020년 12월 3일 ---------</h3>
-                    <p>글로벌에러 처리 추가 (로그인시 기존 기기 로그아웃)</p>
-                    <p>로그인관련 flow 개선</p>
-                <h3 class="update">-------- 2020년 12월 2일 ---------</h3>
-                    <p>통신 관련 로깅 추가</p>
-                    <p>가호출 60초 갱신 추가, 마커 색상 변경</p>
-                    <p>개발_모의위치 수지 추가</p>
-                <h3 class="update">-------- 2020년 11월 30일 ---------</h3>
-                    <p>내플랜 -> 더보기 -> 친구에게 공유하기 스펙적용</p>
-                    <p>딥링크 적용 [shucle.page.link] </p>
-                <h3 class="update">-------- 2020년 11월 19일 ---------</h3>
-                    <p>결제 실패시 [다시 시작], [일시 중지] 문구 노출 수정</p>
-                <h3 class="update">-------- 2020년 11월 18일 ---------</h3>
-                    <p>초대 문자 보내기 -> 초대 링크 보내기 변경</p>
-                    <p>카드정보 입력 화면 편의성 추가</p>
-                    <p>셔클앱 지원범위 변경(아이패드X, 회전X)</p>
-                <h3 class="update">-------- 2020년 11월 16일 ---------</h3>
-                    <p>오류 팝업 문구 layout 조정</p>
-                    <p>내 플랜 뱃지 표시 로직 수정</p>
-                    <p>앱 삭제후 재설치시 기존 인증정보 삭제</p>
-                    <p>내플랜 뱃지 표시 조건 수정</p>
-                    <p>앱삭제후재설치시에 기존 인증관련 정보 남아있는현상 수정</p>
-                    <p>동일 이메일 계정 연결 처리(카카오 -&gt; 이메일 등)</p>
-                    <p>결제내역 메뉴 보여주기</p>
-                    <p>50분 주기 토큰 만료 체크</p>
-                    <p>플랜 상세보기: 프로모션 배너 처리(웰컴 여부 관계없이 "업그레이드" 표기)</p>
-                    <p>호출 취소 후, 출발지 내위치로 지정.</p>
-                    <p>카시트 옵션 여부에 따른 탑승자수 조정.</p>
-                    <p>내 플랜 detail welcome 여부 체크 초안.</p>
-            </details>
+  </head>
+  <body>
+    <div class="container">
+      <div class="header">
+        <span><h2>Shucle - iOS앱 다운로드</h2></span>
+      </div>
+      <div class="wrapper">
+        <!-- <div class="qr"></div>
+        <div class="info"><b>2021-04-23 15:24</b><span> 업데이트 된 최신 버전의 IOS 셔클 라이더앱 입니다</span></div> -->
+        <div class="contents">
+          <div class="icon"></div>
+          <div class="name">
+            <div><h4>STAGE - Shucle</h4></div>
+            <div class="version"><h4 class="version_text">v2.2.0.1</h4></div>
+          </div>
+          <div class="link_wrap"><a class="link" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.2.0/manifest-stage-01.plist" download>다운로드</a></div>
         </div>
-        <br/>
-        <br/>
-        <br/>
-        <br/>
-    </body>
+        <div class="download">
+          <details>
+            <summary>이전 STAGE 빌드</summary>
+            <p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.1.2/manifest-stage-01.plist">Stage 다운로드(세종테스트)</a> stage 2.1.2.1</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.1.1/manifest-stage-01.plist">Stage 다운로드</a> stage 2.1.1.1</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.1.0/manifest-stage-06.plist">Stage 다운로드</a> stage 2.1.0.6</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.1.0/manifest-stage-05.plist">Stage 다운로드</a> stage 2.1.0.5</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.1.0/manifest-stage-04.plist">Stage 다운로드</a> stage 2.1.0.4</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.1.0/manifest-stage-03.plist">Stage 다운로드</a> stage 2.1.0.3</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.1.0/manifest-stage-02.plist">Stage 다운로드</a> stage 2.1.0.2</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.1.0/manifest-stage-01.plist">Stage 다운로드</a> stage 2.1.0.1</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.0.1/manifest-stage-00.plist">Stage 다운로드(Hotfix)</a> stage 2.0.1.v00</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.0.0/manifest-stage-00.plist">Stage 다운로드</a> stage 2.0.0.v00</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-25.plist">Stage 다운로드</a> stage.v25</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-24.plist">Stage 다운로드</a> stage.v24</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-23.plist">Stage 다운로드</a> stage.v23</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-22.plist">Stage 다운로드</a> stage.v22</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-qa-22.plist">QA 다운로드</a> qa.v22</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-21.plist">Stage 다운로드</a> stage.v21</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-20.plist">Stage 다운로드</a> stage.v20</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-19.plist">Stage 다운로드</a> stage.v19</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-18.plist">Stage 다운로드</a> stage.v18</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-17.plist">Stage 다운로드</a> stage.v17</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-release-17.plist">Release 다운로드(shucle-test)</a> release.v17</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-16.plist">Stage 다운로드</a> stage.v16</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-release-14.plist">Release 다운로드</a> release.v14</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-15.plist">Stage 다운로드</a> stage.v15</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-14.plist">Stage 다운로드</a> stage.v14</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-qa-14.plist">QA 다운로드</a> qa.v14</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-13.plist">Stage 다운로드</a> stage.v13</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-qa-13.plist">QA 다운로드</a> qa.v13</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-12.plist">Stage 다운로드</a> stage.v12</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-qa-12.plist">QA 다운로드</a> qa.v12</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-11.plist">Stage 다운로드</a> stage.v11</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-qa-11.plist">QA 다운로드</a> qa.v11</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-10.plist">Stage 다운로드</a> stage.v10</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-qa-10.plist">QA 다운로드</a> qa.v10</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-qa-09.plist">QA 다운로드</a> qa.v9</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-stage-09.plist">Stage 다운로드</a> stage.v9</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-qa-08.plist">QA 다운로드</a> qa.v8</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-qa-07.plist">QA 다운로드</a> qa.v7</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-qa-04.plist">QA 다운로드</a> qa.v4</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-qa-03.plist">QA 다운로드</a> qa.v3</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-qa-02.plist">QA 다운로드</a> qa.v2</p>
+              <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-qa-01.plist">QA 다운로드</a> qa.v1</p>
+          </details>
+        </div>        <div class="contents">
+          <div class="icon"></div>
+          <div class="name">
+            <div><h4>QA - Shucle</h4></div>
+            <div class="version"><h4 class="version_text">v2.2.0.5</h4></div>
+          </div>
+          <div class="link_wrap"><a class="link" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.2.0/manifest-qa-05.plist" download>다운로드</a></div>
+        </div>
+        <div class="download">
+          <details>
+            <summary>이전 QA 빌드</summary>
+            <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.2.0/manifest-qa-04.plist">QA 다운로드</a> QA 2.2.0.4</p>
+            <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.2.0/manifest-qa-03.plist">QA 다운로드</a> QA 2.2.0.3</p>
+            <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.2.0/manifest-qa-02.plist">QA 다운로드</a> QA 2.2.0.2</p>
+            <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.1.2/manifest-qa-02.plist">QA 다운로드</a> QA 2.1.2.2</p>
+          </details>
+        </div>
+        <div class="contents">
+          <div class="icon"></div>
+          <div class="name">
+            <div><h4>DEV - Shucle</h4></div>
+            <div class="version"><h4 class="version_text">v2.2.0.4</h4></div>
+          </div>
+          <div class="link_wrap"><a class="link" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.2.0/manifest-dev-04.plist" download>다운로드</a></div>
+        </div>
+        <div class="download">
+          <details>
+            <summary>이전 DEV 빌드</summary>
+            <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.2.0/manifest-dev-03.plist">DEV 다운로드(2.2.0.3)</a></p>
+            <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.1.0/manifest-dev-03.plist">DEV 다운로드(2.1.0.3)</a></p>
+          </details>
+        </div>
+        <div class="history">
+          <h3>변경사항</h3>
+          <h3 class="update">-------- 2021년 4월 22일(2.2.0.4) ---------</h3>
+            <p>부정평가 시에만 리뷰 피드백 받을수 있도록 수정</p>
+            <p>서비스 탈퇴시 관리중인 멤버십 조회 조건 수정</p>
+            <p>로그아웃, 서비스탈퇴 디자인수정</p>
+            <p>고객문의 채널톡 더블 클릭시 무한로딩 수정</p>
+            <p>가호출, 실호출 간 대기시간 갭이 클떄 팝업 추가</p>
+            <p>appHistoryReset기능 추가 (개발모드)</p>
+          <h3 class="update">-------- 2021년 4월 20일(2.2.0.3) ---------</h3>
+            <p>탑승 리뷰 기능 추가</p>
+            <p>멤버십 관련 노티 랜딩 처</p>
+          <h3 class="update">-------- 2021년 4월 16일(2.2.0.1) ---------</h3>
+            <p>2.2.0 QA 스타트</p>
+        </div>
+      </div>
+      <div class="footer">
+        <span>Copyright by Hyundai Motors.co</span>
+      </div>
+    </div>
+  </body>
 </html>
