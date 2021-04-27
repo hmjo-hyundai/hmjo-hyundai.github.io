@@ -33,9 +33,9 @@
         text-align: center;
       }
       .wrapper {
-        width: calc(100% - 40px);
+        width: calc(100% - 20px);
         height: calc(100% - 160px);
-        padding: 20px;
+        padding: 10px;
         display: flex;
         flex-direction: column;
         overflow-y: scroll;
@@ -55,21 +55,18 @@
         font-size: 18px;
       }
       .contents {
-        width: calc(100% - 20px);
-        height: 100px;
-        padding: 10px;
+        width: calc(100% - 30px);
+        height: 80px;
+        padding: 15px;
         border-radius: 10px;
         border: 1px solid lightgrey;
         display: flex;
         justify-content: space-between;
       }
-      .name {
-        height: 80px;
-      }
       .icon-stage {
         width: 80px;
         height: 80px;
-        margin: 10px 10px 0;
+        margin: 0;
         background-image: url("./images/stage-Icon-App.png");
         background-repeat: no-repeat;
         background-size: 100% 100%;
@@ -78,7 +75,7 @@
       .icon-qa {
         width: 80px;
         height: 80px;
-        margin: 10px 10px 0;
+        margin: 0;
         background-image: url("./images/qa-Icon-App.png");
         background-repeat: no-repeat;
         background-size: 100% 100%;
@@ -87,11 +84,15 @@
       .icon-dev {
         width: 80px;
         height: 80px;
-        margin: 10px 10px 0;
+        margin: 0;
         background-image: url("./images/dev-Icon-App.png");
         background-repeat: no-repeat;
         background-size: 100% 100%;
         border-radius: 10px;
+      }
+      .name {
+        height: 5px;
+        color: black;
       }
       .version {
         right: 10px;
@@ -102,11 +103,10 @@
         float: right;
       }
       .link {
-        width: 120px;
+        width: 60px;
         height: 40px;
         position: relative;
-        top: 30px;
-        right: 10px;
+        top: 20px;
         border-radius: 30px;
         border-width: 0;
         background-color: #2462f7;
@@ -131,8 +131,10 @@
       a:visited.link {
         color: #fff;
       }
+      .title {
+      }
       .download {
-        margin: 10px 0;
+        margin: 10px 10px 0;
       }
       .history {
         margin: 10px 0;
@@ -157,11 +159,11 @@
         <div class="info"><b>2021-04-23 15:24</b><span> 업데이트 된 최신 버전의 IOS 셔클 라이더앱 입니다</span></div> -->
         <div class="contents">
           <div class="icon-stage"></div>
-          <div class="name">
-            <h4>STAGE - Shucle</h4>
-            <div class="version"><h4 class="version_text">v2.2.0.1</h4></div>
+          <div class="title">
+            <H4 class="name">STAGE - Shucle</H4>
+            <H4 class="version">v2.2.0.1</H4>
           </div>
-          <div class="link_wrap"><a class="link" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.2.0/manifest-stage-01.plist" download>다운로드</a></div>
+          <div class="link_wrap"><a class="link" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.2.0/manifest-stage-01.plist" download>설치</a></div>
         </div>
         <div class="download">
           <details>
@@ -211,13 +213,14 @@
               <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/manifest-qa-01.plist">QA 다운로드</a> qa.v1</p>
           </details>
         </div>
+        <br/>
         <div class="contents">
           <div class="icon-qa"></div>
-          <div class="name">
-            <div><h4>QA - Shucle</h4></div>
-            <div class="version"><h4 class="version_text">v2.2.0.10</h4></div>
+          <div class="title">
+            <H4 class="name">QA - Shucle</H4>
+            <H4 class="version">v2.2.0.10</H4>
           </div>
-          <div class="link_wrap"><a class="link" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.2.0/manifest-qa-10.plist" download>다운로드</a></div>
+          <div class="link_wrap"><a class="link" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.2.0/manifest-qa-10.plist" download>설치</a></div>
         </div>
         <div class="download">
           <details>
@@ -233,13 +236,14 @@
             <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.1.2/manifest-qa-02.plist">QA 다운로드</a> QA 2.1.2.2</p>
           </details>
         </div>
+        <br/>
         <div class="contents">
           <div class="icon-dev"></div>
-          <div class="name">
-            <div><h4>DEV - Shucle</h4></div>
-            <div class="version"><h4 class="version_text">v2.2.0.9</h4></div>
+          <div class="title">
+            <H4 class="name">DEV - Shucle</H4>
+            <H4 class="version">v2.2.0.9</H4>
           </div>
-           <div class="link_wrap"><a class="link" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.2.0/manifest-dev-09.plist" download>다운로드</a></div>
+          <div class="link_wrap"><a class="link" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.2.0/manifest-dev-09.plist" download>설치</a></div>
         </div>
         <div class="download">
           <details>
@@ -250,19 +254,20 @@
             <p><a style="font-size: 1.2em;" href="itms-services://?action=download-manifest&amp;url=https://hmjo-hyundai.github.io/manifest/2.1.0/manifest-dev-03.plist">DEV 다운로드(2.1.0.3)</a></p>
           </details>
         </div>
+        <br/>
         <div class="history">
           <h3>변경사항</h3>
-          <h3 class="update">-------- 2021년 4월 22일(2.2.0.4) ---------</h3>
+          <h3 class="update">------ 2021년 4월 22일(2.2.0.4) -------</h3>
             <p>부정평가 시에만 리뷰 피드백 받을수 있도록 수정</p>
             <p>서비스 탈퇴시 관리중인 멤버십 조회 조건 수정</p>
             <p>로그아웃, 서비스탈퇴 디자인수정</p>
             <p>고객문의 채널톡 더블 클릭시 무한로딩 수정</p>
             <p>가호출, 실호출 간 대기시간 갭이 클떄 팝업 추가</p>
             <p>appHistoryReset기능 추가 (개발모드)</p>
-          <h3 class="update">-------- 2021년 4월 20일(2.2.0.3) ---------</h3>
+          <h3 class="update">------ 2021년 4월 20일(2.2.0.3) -------</h3>
             <p>탑승 리뷰 기능 추가</p>
             <p>멤버십 관련 노티 랜딩 처</p>
-          <h3 class="update">-------- 2021년 4월 16일(2.2.0.1) ---------</h3>
+          <h3 class="update">------ 2021년 4월 16일(2.2.0.1) -------</h3>
             <p>2.2.0 QA 스타트</p>
         </div>
       </div>
